@@ -1,40 +1,9 @@
-.dropdown {
-    margin-top: 0;
-    background: black;
-    width: 300px;
-    height: 300px;
-    pointer-events: auto !important;
-}
-
-
-
 .header {
-    &__logo {
-        text-decoration: none;
-        color: black;
-        margin-right: 50px;
-    }
-
-    &__menu {
-        margin-left: 20px;
-        color: black;
-        display: flex;
-
-        &-item {
-            display: flex;
-            cursor: pointer;
-            padding: 0 10px;
-            transition: ease-in-out 0.3s;
-
-            &:hover {
-               color:green
-            }
-
-
-
-            &Icon {
-                margin-top: 15px;
-            }
-        }
-    }
+    width: 100%;
+    -webkit-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+    -moz-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+    box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+    position: fixed;
+    z-index: 100;
 }
+

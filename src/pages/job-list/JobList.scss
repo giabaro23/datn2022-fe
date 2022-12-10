@@ -1,0 +1,190 @@
+@mixin box-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin icon-button($size:40px) {
+    height: $size;
+    width: $size;
+    border-radius: 50%;
+    background-color: #eeeeee;
+    color: #1657CB;
+    @include box-center
+}
+
+.joblist {
+    width: 100%;
+    padding-top: 57px;
+
+    &__banner {
+        height: 220px;
+        @include box-center;
+        flex-direction: column;
+        border-bottom: 1px solid #ccc;
+
+        &--title {}
+
+        &--des {}
+
+        &--btn {
+            display: flex;
+
+            Button {
+                margin-right: 10px;
+                background: #2db964;
+                border: none;
+                outline: none;
+                font-weight: 500;
+                font-size: 16px;
+
+                &:hover {
+                    background: #4ebd80;
+                }
+            }
+        }
+    }
+
+    &__main {
+        height: 100%;
+        background: #F0F0F0;
+        padding: 100px 300px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__topic {
+        flex: 2;
+    }
+
+    &__wrapper {
+        flex: 7;
+        margin-left: 40px;
+        border: 1px solid #ccc;
+
+    }
+
+    &__head {
+        height: 150px;
+        background: white;
+
+        &--tab {
+            width: 100%;
+            display: flex;
+
+        }
+
+        &--link {
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 14px;
+            color: #999;
+            padding: 20px 0px;
+            background: #f5f5f5;
+            @include box-center;
+
+            &:hover {
+                background: #0088CC;
+                color: #FFF;
+            }
+        }
+
+        &--search {
+            display: flex;
+            border: 1px solid #D4D4D4;
+            border-radius: 5px 5px 5px 5px;
+            margin: 25px 40px 0 40px;
+        }
+
+        &--icon {
+            margin: 12px 5px 0 12px;
+        }
+
+        &--input {
+            border: none;
+            text-indent: 15px;
+            width: 100%;
+            padding: 12px 0;
+            font-size: 16px;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        &--btn {
+            padding: 4px 12px;
+            background: #2db964;
+            border-radius: 0 5px 5px 0;
+            width: 130px;
+            color: #fff;
+            font-weight: 400;
+            border: none;
+            outline: none;
+
+            &:hover {
+                background: #4ebd80;
+            }
+        }
+    }
+
+
+}
+
+.head {
+    &__btn1 {
+        flex: 1;
+        border-right: 1px solid #D4D4D4;
+    }
+
+    &__btn2 {
+        flex: 1;
+        border-right: 1px solid #D4D4D4;
+
+
+    }
+
+    &__btn3 {
+        flex: 1;
+
+
+    }
+}
+
+.topic {
+    &__list {
+        width: 100%;
+        padding-top: 20px;
+        padding-left: 0;
+        list-style-type: none;
+        background-color: white;
+        border: 1px solid #ccc;
+
+    }
+
+    &__title {
+        padding-left: 30px;
+    }
+
+    &__item {
+        padding: 15px 0;
+        padding-left: 32px;
+        margin: 0;
+
+        cursor: pointer;
+
+        &:hover {
+            background-color: #FAFAFA;
+            color: #0a58ca;
+        }
+
+        &--link {
+            text-decoration: none;
+            color: #667488;
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 400;
+        }
+    }
+}

@@ -1,0 +1,152 @@
+@mixin box-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin icon-button($size:40px) {
+    height: $size;
+    width: $size;
+    border-radius: 50%;
+    background-color: #eeeeee;
+    color: #1657CB;
+    @include box-center
+}
+
+.dashboard {
+    padding-top: 57px;
+    max-width: 100%;
+    background-color: #f6f8fb;
+    padding-left: 300px;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+.main {
+    padding: 50px;
+    width: 100%;
+
+    &__statistical {}
+}
+
+
+.statistical {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 0;
+
+    &__card {
+        height: 140px;
+        width: 350px;
+        margin-right: 20px;
+        border-radius: 5px;
+
+        &--blue {
+            background-color: #1657CB;
+        }
+
+        &--green {
+            background-color: #64BC36;
+        }
+
+        &--yellow {
+            background-color: #FFAE00;
+        }
+
+        &--red {
+            background-color: #F3103C;
+        }
+    }
+
+    &__content {
+        padding: 30px;
+        display: flex;
+
+    }
+
+    &__icon {
+        height: 70px;
+        width: 70px;
+        background-color: white;
+        border-radius: 50%;
+
+        @include box-center &--blue {
+            color: #1657CB;
+        }
+
+        &--green {
+            color: #64BC36;
+        }
+
+        &--yellow {
+            color: #FFAE00;
+        }
+
+        &--red {
+            color: #F3103C;
+        }
+    }
+
+    &__text {
+        padding: 5px 20px;
+    }
+
+    &__title {
+        font-size: 16px;
+        line-height: 24px;
+        color: white;
+    }
+
+    &__number {
+        font-size: 35px;
+        line-height: 42px;
+        font-weight: 700;
+        color: white;
+
+    }
+
+
+
+}
+
+.notification {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.apply {
+    background-color: white;
+    width: 48%;
+    margin-right: 20px;
+
+    &__title {
+        padding: 20px;
+
+        h3 {
+            font-size: 20px;
+            font-weight: 600;
+        }
+    }
+}
+
+.post {
+    background-color: white;
+
+    &__title {
+        padding: 30px 0 15px 20px;
+
+        h3 {
+            font-size: 20px;
+            font-weight: 600;
+        }
+    }
+
+    &__list {
+        padding: 20px 0 20px 30px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+   
+}

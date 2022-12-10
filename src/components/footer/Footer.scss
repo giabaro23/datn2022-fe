@@ -1,0 +1,36 @@
+.footer{
+    height: 300px;
+    background: #252d40;
+    &__content{
+        padding: 50px;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__left{
+        &--logo{
+
+        }
+        &--des{
+
+        }
+        &--contact{
+
+        }
+    }
+    &__main{
+        display: flex;
+        flex: 2;
+        justify-content: space-evenly;
+    }
+    &__company{
+
+    }
+    &__resource{
+
+    }
+    &__right{
+        
+    }
+
+}

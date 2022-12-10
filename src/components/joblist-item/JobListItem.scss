@@ -1,0 +1,97 @@
+@mixin box-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin icon-button($size:40px) {
+    height: $size;
+    width: $size;
+    border-radius: 50%;
+    background-color: #eeeeee;
+    color: #1657CB;
+    @include box-center
+}
+
+.job-list {
+    &__item {
+        padding: 30px 20px;
+        background: #f2fbfd;
+        position: relative;
+        border: 1px solid #7FD5E8;
+
+        &--head {
+            display: flex;
+        }
+
+        &--name {
+            text-decoration: none;
+            color: #0088CC;
+            font-size: 16px;
+            margin-right: 7px;
+        }
+
+        &--status {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 14px;
+            height: 16px;
+            background: #F76D22;
+            margin-top: 5px;
+            color: #FFF;
+            padding: 0px 4px;
+            @include box-center
+        }
+
+        &--standing {
+            background: orange;
+            position: absolute;
+            right: 0;
+        }
+
+        &--employer {
+            display: flex;
+        }
+
+        &--rating {
+            margin-right: 5px;
+        }
+
+        &--info {
+            display: flex;
+            width: 100%;
+            background: #d9f3f9;
+            border-radius: 5px;
+            @include box-center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+
+        &--due {
+            margin: 0;
+        }
+
+        &--des {
+            font-size: 15px;
+            line-height: 24px;
+            margin: 10px 0px;
+        }
+
+        &--skill {
+            display: flex;
+
+            p {
+                font-size: 13px;
+                line-height: 14px;
+                padding: 3px 5px;
+                background-color: #08C;
+                color: #fff;
+                border-radius: 3px;
+                margin-right: 6px;
+                cursor: pointer;
+            }
+        }
+    }
+}

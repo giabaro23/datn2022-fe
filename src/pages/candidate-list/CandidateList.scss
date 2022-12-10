@@ -1,0 +1,124 @@
+@mixin box-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin icon-button($size:40px) {
+    height: $size;
+    width: $size;
+    border-radius: 50%;
+    background-color: #eeeeee;
+    color: #1657CB;
+    @include box-center
+}
+
+.candidatelist {
+    width: 100%;
+    padding-top: 57px;
+
+    &__banner {
+        height: 220px;
+        @include box-center;
+        flex-direction: column;
+        border-bottom: 1px solid #ccc;
+
+        &--title {}
+
+        &--des {}
+
+        &--btn {
+            display: flex;
+
+            Button {
+                margin-right: 10px;
+                background: #2db964;
+                border: none;
+                outline: none;
+                font-weight: 500;
+                font-size: 16px;
+
+                &:hover {
+                    background: #4ebd80;
+                }
+            }
+        }
+    }
+
+    &__main {
+        height: 100%;
+        background: #F5F5F5;
+        padding: 100px 300px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__topic {
+        flex: 2;
+        overflow: auto;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 5%;
+    }
+
+    &__wrapper {
+        flex: 7;
+        margin-left: 40px;
+        position: sticky;
+        top: 5%;
+    }
+
+    &__head {}
+
+    &__form {
+        height: 80px;
+        width: 100%;
+        background: white;
+        display: flex;
+        justify-content: space-between;
+        padding: 5px;
+        border-radius: 5px;
+        margin: 20px 0px;
+
+    }
+
+
+}
+
+
+
+
+.search {
+    &__form {}
+
+    &__input {
+        padding: 20px 0px 20px 10px;
+        margin-right: 5px;
+
+        &::placeholder {
+            font-weight: bold;
+            opacity: .5;
+            color: #696969;
+            padding-right: 10px;
+        }
+
+    }
+
+    &__select {
+        padding: 20px 0px 20px 10px;
+        margin-right: 5px;
+    }
+
+    &__button {
+        width: 300px;
+        background: #2db964 !important;
+        border: none !important;
+        outline: none !important;
+        font-weight: 500 !important;
+        font-size: 16px !important;
+
+        &:hover {
+            background: #4ebd80 !important;
+        }
+    }
+}

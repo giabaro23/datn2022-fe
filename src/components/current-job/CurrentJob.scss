@@ -1,0 +1,111 @@
+@mixin box-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin icon-button($size:40px) {
+    height: $size;
+    width: $size;
+    border-radius: 50%;
+    background-color: #eeeeee;
+    color: #1657CB;
+    @include box-center
+}
+
+
+.post {
+    &__item {
+        height: 150px;
+        width: 48%;
+        border: 1px #EEE solid;
+        margin-right: 20px;
+        border-radius: 8px;
+        padding: 20px;
+        display: flex;
+        margin-top: 15px;
+
+        &--avatar {
+            width: 100px;
+            height: 100px;
+
+            img {
+                object-fit: cover;
+                border-radius: 5px;
+            }
+        }
+
+        &--content {
+            width: 100%;
+            padding-left: 20px;
+        }
+
+        &--header {
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        &--user {
+            font-size: 20px;
+            line-height: 24px;
+            font-weight: 500
+        }
+
+        &--action {
+            display: flex;
+
+            &--icon {
+                @include icon-button(35px) margin: 0 3px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #1657CB;
+                    color: white;
+                }
+            }
+        }
+
+        &--job {
+            font-size: 14px;
+            line-height: 21px;
+            color: #1657CB;
+            font-weight: 500;
+        }
+
+        &--des {
+            display: flex;
+
+        }
+
+        &--location {
+            display: flex;
+            margin-right: 5px;
+
+            p {
+                font-size: 14px;
+                line-height: 21px;
+                font-weight: 500;
+                color: #646464;
+
+            }
+        }
+
+        &--icon {
+            margin-bottom: 5px;
+            margin-right: 2px;
+            color: #1657CB;
+        }
+
+        &--type {
+            display: flex;
+
+            p {
+                font-size: 14px;
+                line-height: 21px;
+                color: #646464;
+            }
+        }
+
+    }
+}
