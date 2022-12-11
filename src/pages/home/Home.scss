@@ -1,8 +1,4 @@
-@mixin box-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+@import '../../common/variable.module.scss';
 
 .home {
     width: 100%;
@@ -39,11 +35,11 @@
         padding: 20px 80px !important;
         font-size: 18px !important;
         font-weight: 700 !important;
-        background-color: #2ac36f !important;
+        background-color: $btn-color;
         border: none !important;
 
         &:hover {
-            background-color: #4ebd80 !important;
+            background-color: $btn-hover-color ;
 
         }
     }
@@ -172,11 +168,11 @@
             padding: 20px 80px !important;
             font-size: 18px !important;
             font-weight: 700 !important;
-            background-color: #2ac36f !important;
+            background-color: $btn-color !important;
             border: none !important;
 
             &:hover {
-                background-color: #4ebd80 !important;
+                background-color: $btn-hover-color !important;
 
             }
         }

@@ -1,0 +1,53 @@
+@import '../../common/variable.module.scss';
+
+.login {
+    background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+    width: 100vw;
+    height: 100vh;
+    @include box-center;
+
+    &__title {
+        margin: 10px 0 20px 0;
+    }
+
+    &__form {
+        height: 450px;
+        width: 400px;
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        border-radius: 5px;
+
+        Button {
+            padding: 10px 0;
+            font-weight: 600;
+            font-size: 18px;
+            width: 100%;
+            background-color: $btn-color;
+            border: $btn-color;
+            margin: 15px 0;
+
+            &:hover {
+                background-color: $btn-hover-color;
+            }
+        }
+    }
+
+    &__forget {
+        text-decoration: none;
+    }
+
+}
+
+.register__text {
+    @include box-center;
+
+    &--link {
+        text-decoration: none;
+        color: #646464;
+        margin-top: 25px;
+        &:hover{
+            color: $btn-color;
+        }
+    }
+}

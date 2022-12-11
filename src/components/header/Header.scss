@@ -1,3 +1,5 @@
+@import '../../common/variable.module.scss';
+
 .header {
     width: 100%;
     -webkit-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
@@ -5,5 +7,111 @@
     box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
     position: fixed;
     z-index: 100;
+
+    &__menu {
+        p {
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            font-weight: 600;
+
+            &:hover {
+                color: $btn-hover-color;
+            }
+        }
+    }
+
+    &__register-btn {
+        Button {
+            background-color: transparent;
+            border: 1px solid $btn-color;
+            color: $btn-color;
+            transition: all 0.6s ease-in-out;
+            font-weight: 600;
+
+            &:hover {
+                background-color: $btn-color;
+                border: 1px solid $btn-color;
+                font-weight: 600;
+            }
+        }
+    }
+
+    &__login-btn {
+        Button {
+            background-color: $btn-color;
+            border: 1px solid $btn-color;
+            font-weight: 600;
+
+            &:hover {
+                background-color: $btn-hover-color;
+                border: 1px solid $btn-hover-color;
+            }
+        }
+    }
+
+    &__user-info {
+        display: flex;
+        position: relative;
+
+        img {
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+    }
+
+    &__user-detail {
+        margin-top: 5px;
+        position: relative;
+
+        p {
+            margin: 0;
+            padding: 0;
+            padding-left: 10px;
+        }
+    }
+
+    &__user-name {
+        text-decoration: none;
+        font-weight: 600;
+        color: #000;
+        padding-left: 10px;
+
+    }
+
+    &__user-id {
+        font-size: 12px;
+        padding-left: 10px;
+    }
+
+    &__user-dropdown {
+        position: absolute;
+        background-color: white;
+        width:180px;
+        transform: translateY(15px);
+        padding: 10px 0;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        ul{
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+
+    
 }
+
+.user__option--item{
+    list-style-type: none;
+    padding: 5px 15px;
+    &:hover{
+    
+        color: $btn-color;
+    }
+}
+
+
+
 

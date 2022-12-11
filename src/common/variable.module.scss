@@ -1,0 +1,8 @@
+$btn-color: #2ac36f;
+$btn-hover-color: #56bf85;
+
+@mixin box-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
