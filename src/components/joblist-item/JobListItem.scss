@@ -16,12 +16,19 @@
 .job-list {
     &__item {
         padding: 30px 20px;
-        background: #f2fbfd;
         position: relative;
         border: 1px solid #7FD5E8;
 
+        &-fulltimebg {
+            background: #f2fbfd;
+        }
+
+        &-parttimebg {
+            background: #fefbeb;
+        }
+
         &--head {
-            display: flex;
+            margin-bottom: 20px;
         }
 
         &--name {
@@ -31,23 +38,29 @@
             margin-right: 7px;
         }
 
-        &--status {
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            line-height: 14px;
-            height: 16px;
-            background: #F76D22;
-            margin-top: 5px;
-            color: #FFF;
-            padding: 0px 4px;
-            @include box-center
-        }
+        &--parttime {
+            background: #FAAB78;
 
-        &--standing {
-            background: orange;
             position: absolute;
             right: 0;
+            top: 15px;
+            font-weight: 500;
+            color: white;
+            border-radius: 4px 0px 0px 4px;
+            padding: 0 5px;
+        }
+
+        &--fulltime {
+            background: #BCCEF8;
+
+            position: absolute;
+            right: 0;
+            top: 15px;
+
+            font-weight: 500;
+            color: #eee;
+            border-radius: 4px 0px 0px 4px;
+            padding: 0 5px;
         }
 
         &--employer {

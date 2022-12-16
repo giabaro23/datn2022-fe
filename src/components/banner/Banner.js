@@ -1,9 +1,13 @@
 import React from 'react';
+import { useDispatch, useSelector } from "react-redux";
+
 import Button from "react-bootstrap/Button";
 
 import './Banner.scss'
 
 const Banner = () => {
+  const { user: currentUser } = useSelector((state) => state.authReducer);
+
     return (
         <div className="banner">
         <img
@@ -12,7 +16,10 @@ const Banner = () => {
         />
         <div className="banner__inner">
           <h1>Đảm bảo hoàn thành dự án với freelancer hàng đầu</h1>
-          <Button className="banner__btn">ĐĂNG KÝ NGAY</Button>
+          {
+            !currentUser ? 
+          <Button className="banner__btn">ĐĂNG KÝ NGAY</Button>  : <></>
+          }
         </div>
       </div>
     );

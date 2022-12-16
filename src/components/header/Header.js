@@ -1,25 +1,36 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Routes, Route, Link, useLocation } from "react-router-dom";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
+import React, { useCallback, useState, useEffect } from "react";
+import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import Button from "react-bootstrap/Button";
-import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
-import { logout } from "../../actions/auth";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+
+import { logout } from "../../actions/auth/auth";
+import { getUserById } from "../../actions/auth/user";
 import Logo from "../logo/Logo";
 import "./Header.scss";
 
 const Header = () => {
-  const [isLogin, setIsLogin] = useState(true);
   const [isShowSetting, setIsShowSetting] = useState(false);
-  const { user: currentUser } = useSelector((state) => state.authReducer);
+  const { user: authUser } = useSelector((state) => state.authReducer);
+
   const dispatch = useDispatch((state) => state);
 
-  let location = useLocation();
+  //update data auth 
+  useEffect(()=>{
+    (async ()=> {
+      const idAuth = authUser?.id;
+      if(idAuth) {
+        dispatch(getUserById(idAuth));
+      }
+    })();
+  }, [dispatch]);
+
   const logOut = useCallback(() => {
     dispatch(logout());
     window.location.reload();
@@ -29,52 +40,43 @@ const Header = () => {
     setIsShowSetting(!isShowSetting);
   };
 
-  const handleLogin = () => {
-    setIsLogin(true);
-  };
-  const handleLogout = () => {
-    setIsLogin(false);
-  };
   return (
     <div className="header">
       <Navbar bg="light" expand="lg">
         <Container>
           <Navbar.Brand className="a">
-            <Logo color={"logo-black"} />
+            <Logo url="/home" color={"logo-black"} />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link className="header__menu">
-                <p>Tìm ứng viên</p>
+                <Link className="header__menu--link" to="/candidatelist">
+                  <p>Tìm ứng viên</p>
+                </Link>
               </Nav.Link>
-              <Nav.Link className="header__menu">
-                <p>Tìm việc làm</p>
+              <Nav.Link exact to="/joblist" className="header__menu">
+                <Link className="header__menu--link" to="/joblist">
+                  <p>Tìm việc làm</p>
+                </Link>
               </Nav.Link>
 
               <Nav.Link className="header__menu">
-                <p>Về chúng tôi</p>
+                <Link className="header__menu--link" to="/">
+                  <p>Về chúng tôi</p>
+                </Link>
               </Nav.Link>
               <Nav.Link className="header__menu">
-                <p>
-                  Hỗ trợ <HelpOutlineIcon sx={{ fontSize: "18px" }} />
-                </p>
+                <Link className="header__menu--link" to="/">
+                  <p>
+                    Hỗ trợ <HelpOutlineIcon sx={{ fontSize: "18px" }} />
+                  </p>
+                </Link>
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
           <Nav className="me-auto">
-            {!currentUser ? (
-              <>
-                <Nav.Link className="header__register-btn">
-                  <Button>Đăng ký</Button>
-                </Nav.Link>
-                <Nav.Link className="header__login-btn">
-                  <Link to="/login">
-                    <Button onClick={handleLogin}>Đăng nhập</Button>
-                  </Link>
-                </Nav.Link>
-              </>
-            ) : (
+            {authUser ? (
               <>
                 <Nav.Link className="header__alert">
                   <NotificationsNoneIcon
@@ -88,14 +90,22 @@ const Header = () => {
                 <Nav.Link className="header__user" onClick={showSetting}>
                   <div className="header__user-info">
                     <img
-                      src="https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-portrait-176256935.jpg"
+                      src={
+                        authUser?.avatar
+                          ? authUser?.avatar
+                          : "https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-portrait-176256935.jpg"
+                      }
                       alt=""
                       width={50}
                       height={50}
                     />
                     <div className="header__user-detail">
-                      <Link className="header__user-name">Ngân Khùng</Link>
-                      <p className="header__user-id">ID: 31052001</p>
+                      <Link className="header__user-name">
+                        {authUser?.firstName + " " + authUser?.lastName}
+                      </Link>
+                      <p className="header__user-id">
+                        ID: {authUser?.id}
+                      </p>
                     </div>
                     <div className="header__user-icon">
                       <ArrowDropDownIcon
@@ -106,8 +116,16 @@ const Header = () => {
                   {isShowSetting ? (
                     <div className="header__user-dropdown">
                       <ul>
-                        <li className="user__option--item">Hồ sơ cá nhân</li>
-                        <li className="user__option--item">Chỉnh sửa hồ sơ</li>
+                        <li className="user__option--item">
+                          <Link to="/profile">Hồ sơ cá nhân</Link>
+                        </li>
+                        <li className="user__option--item">
+                          <Link
+                            to={"/profile/edit/" + authUser?.id}
+                          >
+                            Chỉnh sửa hồ sơ
+                          </Link>
+                        </li>
                         <NavDropdown.Divider />
                         <li className="user__option--item" onClick={logOut}>
                           Đăng xuất
@@ -117,6 +135,19 @@ const Header = () => {
                   ) : (
                     <></>
                   )}
+                </Nav.Link>
+              </>
+            ) : (
+              <>
+                <Nav.Link className="header__register-btn">
+                  <Link to="/register">
+                    <Button>Đăng ký</Button>
+                  </Link>
+                </Nav.Link>
+                <Nav.Link className="header__login-btn">
+                  <Link to="/login">
+                    <Button>Đăng nhập</Button>
+                  </Link>
                 </Nav.Link>
               </>
             )}

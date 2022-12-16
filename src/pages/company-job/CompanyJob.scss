@@ -1,0 +1,129 @@
+@mixin box-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@import '../../common/variable.module.scss';
+
+@mixin icon-button($size:40px) {
+    height: $size;
+    width: $size;
+    border-radius: 50%;
+    background-color: #eeeeee;
+    color: #1657CB;
+    @include box-center
+}
+
+
+
+.your-job {
+    width: 100%;
+    padding-top: 57px;
+
+    &__wrapper {
+        height: 100%;
+        background: #F5F5F5;
+        padding: 100px 300px;
+
+    }
+
+    &__title {
+        h1 {
+            @include box-center();
+            margin-bottom: 20px;
+            font-size: 40px;
+            font-weight: 300;
+            color: $btn-color;
+        }
+    }
+
+    &__list {
+        &--table {}
+
+        &--header {
+            padding: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(27, 31, 35, 0.15);
+            align-items: center;
+
+            p {
+                font-size: 16px;
+                font-weight: 600;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 5px 0;
+                color: #808080;
+            }
+        }
+
+        &--item {
+            padding: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(27, 31, 35, 0.15);
+            align-items: center;
+            background-color: #fbf5ff;
+            p{
+                margin: 0;
+                padding: 0;
+            }
+        }
+
+        &-id {
+            flex: 1;
+        }
+
+        &-name {
+            flex: 5;
+            color: #1657CB;
+            cursor: pointer;
+        }
+
+        &-status {
+            flex: 2;
+        }
+
+        &-action {
+            flex: 2;
+            display: flex;
+        }
+        &-icon{
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            background-color: #eeeeee;
+            color: #1657CB;
+            margin: 5px;
+            border: none;
+            outline: none;
+            @include box-center();
+            &:hover{
+                background-color: #1657CB;
+                color: #fff;
+            }
+        }
+    }
+}
+
+.thead__job {
+    &-id {
+        flex: 1;
+    }
+
+    &-name {
+        flex: 5;
+    }
+
+    &-status {
+        flex: 2;
+    }
+
+    &-action {
+        flex: 2;
+    }
+}

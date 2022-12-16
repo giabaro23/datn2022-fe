@@ -1,0 +1,113 @@
+@import '../../common/variable.module.scss';
+
+.add-job {
+    width: 100%;
+    padding-top: 57px;
+
+    &__wrapper {
+        height: 100%;
+        background: #F5F5F5;
+        padding: 100px 300px;
+        display: flex;
+        @include box-center()
+    }
+
+    &__main {
+
+        h1 {
+            @include box-center();
+            margin-bottom: 20px;
+            font-size: 40px;
+            font-weight: 300;
+            color: $btn-color;
+        }
+    }
+
+    &__form {
+        &--item {
+            @include box-center()
+        }
+
+        &--left {
+            margin-right: 20px;
+        }
+
+        &--right {
+            flex: 2;
+
+            h4 {
+                font-weight: 600;
+                font-size: 20px;
+            }
+        }
+        &--topic{
+            width: 500px !important;
+        }
+        &--name{
+            width: 500px !important;
+        }
+        &--des{
+            width: 500px !important;
+            height: 100px !important;
+        }
+        &--skill{
+            width: 500px !important;
+        }
+
+        &--label {
+            font-size: 16px;
+            line-height: 20px;
+            font-weight: 400;
+            max-width: 500px;
+        }
+
+        &--date {
+            display: flex;
+            flex-direction: column;
+        }
+        &--work-Type{
+            width: 500px !important;
+        }
+        &--location{
+            width: 500px !important;
+        }
+        &--pay{
+            width: 500px !important;
+        }
+        &--budget-from{
+            width: 250px !important;
+
+        }
+        &--budget-to{
+            max-width: 250px !important;
+        }
+        &--btn{
+            padding: 10px !important;
+            background-color: $btn-color !important;
+            border: none !important;
+            width: 300px;
+            font-size: 18px !important;
+            margin: 30px 0 10px 200px !important;
+            &:hover{
+                background-color: $btn-hover-color !important;
+            }
+        }
+    }
+}
+
+.date__select {
+    background-color: #fff;
+    width: 300px;
+    border-radius: 4px;
+    border: 1px solid #CED4DA !important;
+    padding: 6px 12px 6px 12px !important;
+
+    
+}
+
+.MuiFormLabel-root .MuiInputLabel-root .MuiInputLabel-formControl .MuiInputLabel-animated .MuiInputLabel-shrink .MuiFormLabel-filled {
+    display: none !important;
+}
+#date-picker-inline-label{
+    display: none;
+}

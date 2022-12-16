@@ -8,31 +8,29 @@ const Footer = () => {
       <div className="footer__container container">
         <div className="footer__content">
           <div className="footer__left">
-            <h3 className="footer__left--logo">IYW Job</h3>
+            <h3 className="footer__left--logo">Free Job</h3>
             <p className="footer__left--des">
-              Lorem ipsum dolor, sit amet consectetur adipisicing.
+              
             </p>
-            <p className="footer__left--contact">gmail: jwtjob@gmail.com</p>
+            <p className="footer__left--contact">gmail: freejob@gmail.com</p>
           </div>
           <div className="footer__main">
             <div className="footer__company">
-              <h5>Company</h5>
-              <p>About IYW</p>
-              <p>Browse Jobs</p>
-              <p>Contact Us</p>
-              <p>Candidate Dashboard</p>
+              <h5>Website</h5>
+              <p>Về chúng tôi</p>
+              <p>Hỗ trợ</p>
+              
             </div>
             <div className="footer__resource">
-              <h5>Resources</h5>
-              <p>Blog</p>
-              <p>Post A Job</p>
-              <p>Candidates</p>
-              <p>Privacy Policy</p>
+              <h5>Tài nguyên</h5>
+              <p>Bài viết</p>
+              <p>Thành tựu</p>
+           
             </div>
           </div>
           <div className="footer__right">
-            <h5>Quick Contact</h5>
-            <p>32, Wales Street, New York, USA</p>
+            <h5>Liên hệ</h5>
+            <p>114 Cồn Dầu 19, Cẩm Lệ, Đà Nẵng</p>
             <p>0977542603</p>
           </div>
         </div>

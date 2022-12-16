@@ -81,7 +81,6 @@ const Dashboard = () => {
   const SomeComponent = TurnedInNotOutlinedIcon
   return (
     <>
-      <Header />
       <Menu />
       <div className="dashboard">
         <div className="main">

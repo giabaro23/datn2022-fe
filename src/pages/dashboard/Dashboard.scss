@@ -70,7 +70,8 @@
         background-color: white;
         border-radius: 50%;
 
-        @include box-center &--blue {
+        @include box-center 
+        &--blue {
             color: #1657CB;
         }
 

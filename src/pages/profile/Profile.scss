@@ -1,0 +1,224 @@
+@import '../../common/variable.module.scss';
+
+.profile {
+    width: 100%;
+    padding-top: 57px;
+
+    &__banner {
+        height: 220px;
+        @include box-center;
+        flex-direction: column;
+        border-bottom: 1px solid #ccc;
+
+        &--title {}
+
+
+    }
+
+    &__main {
+        height: 100%;
+        background: #F5F5F5;
+        padding: 100px 300px;
+        display: flex;
+    }
+
+    &__left {
+        flex: 3;
+        margin-right: 15px;
+
+        &--header {
+            display: flex;
+        }
+
+        &--avatar {
+            @include box-center;
+            flex-direction: column;
+        }
+
+        &--photo {
+            img {
+                object-fit: cover;
+                border-radius: 50%;
+            }
+        }
+
+        &--id {
+            font-size: 14px;
+            color: #666;
+            margin: 5px 0;
+        }
+
+        &--info {
+            margin: 35px 20px 0px 25px;
+        }
+
+        &--name {
+            font-size: 25px;
+            font-weight: 600;
+            line-height: 40px;
+            margin-bottom: 5px;
+        }
+
+        &--location {
+            font-size: 14px;
+            line-height: 20px;
+            color: #999;
+        }
+
+        &--btn {
+            Button {
+                margin-top: 35px;
+                background-color: $btn-color;
+                border: none;
+                outline: none;
+                font-weight: 500;
+
+                &:hover {
+                    background-color: $btn-hover-color;
+                }
+            }
+        }
+        &--title{
+            font-size: 20px;
+            font-weight: 600;
+        }
+        &--about{
+            margin: 40px 0;
+            p{
+                font-size: 14px;
+                color: #333;
+            }
+        }
+        &--resume{
+            margin: 40px 0;
+            p{
+                font-size: 14px;
+                color: #333;
+            }
+        }
+      
+    }
+
+
+
+    &__right {
+        height: fit-content;
+
+        flex: 1;
+        margin: 0 15px;
+
+        &--contact {
+            height: fit-content;
+            background-color: #f2fbff;
+            width: 400px;
+            padding: 30px;
+            border-radius: 15px;
+
+        }
+        &--history{
+            margin:30px;
+            h3{
+                font-size: 20px;
+                font-weight: 600;
+            }
+            p{
+                font-size: 14px;
+                color: #333;
+            }
+        }
+      
+    }
+
+    &__info {
+        padding: 10px;
+        display: flex;
+
+        &--left {
+            margin-right: 10px;
+
+            img {
+                border-radius: 15px;
+            }
+        }
+
+        &--right {}
+
+        &--name {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 24px;
+            color: #1657CB;
+        }
+
+        &--topic {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+    }
+
+    &__topic--tag {
+        margin: 0;
+        padding: 5px;
+        color: #ff6f6d;
+        background-color: #fff4f3;
+        margin-right: 5px;
+        margin-top: 5px;
+        font-size: 12px;
+    }
+
+    &__detail {
+        margin: 15px 0;
+        padding: 0;
+
+        &--item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px;
+            padding: 20px 0;
+            border-bottom: 1px solid #D8F4FF;
+            list-style-type: none;
+            margin: 0;
+        }
+
+        &--label {
+            font-weight: 500;
+            color: #2F4858;
+            text-decoration: none solid rgb(47, 72, 88);
+            padding: 0;
+            margin: 0;
+        }
+
+        &--content {
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 24px;
+            text-decoration: none solid rgb(136, 136, 136);
+            color: #888;
+        }
+
+    }
+}
+
+.transfer__wrapper{
+    height: 100px;
+    width: 400px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    @include box-center()
+    justify-content: space-evenly;
+    cursor: pointer;
+    text-decoration: none;
+    p{
+        font-size: 20px;
+        font-weight: 600;
+        color: $btn-color;
+        margin: 0;
+        &:hover{
+            color: $btn-hover-color;
+        }
+    }
+}

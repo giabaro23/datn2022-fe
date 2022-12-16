@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CheckIcon from "@mui/icons-material/Check";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -9,66 +9,85 @@ import StarRateIcon from "@mui/icons-material/StarRate";
 
 import "./EmployerDetail.scss";
 import ReviewItem from "../../components/review-item/ReviewItem";
+import JobService from "../../services/job/job.service";
+import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import userService from "../../services/auth/user.service";
+import { formatDate } from "../../common/constants";
+import Swal from "sweetalert2";
 
 const EmployerDetail = () => {
+  const params = useParams();
+  const [currentJob, setCurrentJob] = useState({});
+  const [currentUser, setCurrentUser] = useState({});
+  const dispatch = useDispatch();
+  const getJobById = (id) => {
+    JobService.get(id)
+      .then((res) => {
+        setCurrentJob(res.data[0]);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
+  useEffect(() => {
+    getJobById(params.id);
+  }, [params.id]);
+
+  const getUser = (id) => {
+    userService
+      .getUserById(id)
+      .then((res) => {
+        setCurrentUser(res.data[0]);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
+  useEffect(() => {
+    if (currentJob && currentJob?.userId) {
+      getUser(currentJob?.userId);
+    }
+  }, [currentJob?.userId]);
+
+  const handleApply = () =>{
+    Swal.fire('Một yêu cầu ứng tuyển vào dự án đã được gửi đến nhà tuyển dụng')
+  }
+
   return (
     <>
       <Header />
       <div className="employer">
         <div className="employer__banner">
-          <h1 className="employer__banner--title">employer detail</h1>
+          <h1 className="employer__banner--title">Thông tin công việc</h1>
         </div>
         <div className="employer__main">
           <div className="employer__left">
             <div className="employer__title">
-              <h3>About Company</h3>
+              <h3>Mô tả công việc</h3>
             </div>
             <div className="employer__des">
-              <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Quisquam libero dignissimos harum illo impedit assumenda, culpa
-                fugiat eum quos voluptatibus! Ea eligendi maiores aliquid.
-                Obcaecati ab quisquam ipsum, non veritatis consequuntur unde in
-                doloribus, odio harum nam beatae eos magnam omnis sint adipisci
-                nobis? Quas reiciendis provident error voluptatem aut!
-              </p>
+              <p>{currentJob?.name}</p>
             </div>
             <div className="employer__title">
-              <h3>Job Responsibilities</h3>
+              <h3>Yêu cầu</h3>
             </div>
             <div className="employer__responsibility">
               <ul>
-                <li>
-                  <CheckIcon sx={{ color: "#1657CB", fontSize: "20px" }} />{" "}
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Dolores laboriosam possimus odio laborum tenetur accusantium
-                  nulla doloribus reiciendis, ipsum eveniet.
-                </li>
-                <li>
-                  <CheckIcon sx={{ color: "#1657CB", fontSize: "20px" }} />{" "}
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
-                  quisquam exercitationem maxime eius laborum aut.
-                </li>
-                <li>
-                  <CheckIcon sx={{ color: "#1657CB", fontSize: "20px" }} />{" "}
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Dolorum voluptatibus deserunt repudiandae, dicta mollitia
-                  labore quis cupiditate nemo, alias tenetur nisi, nostrum
-                  commodi! Neque modi quos in, nihil voluptate praesentium.
-                </li>
-                <li>
-                  <CheckIcon sx={{ color: "#1657CB", fontSize: "20px" }} />{" "}
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Veniam, minima necessitatibus!
-                </li>
-                <li>
-                  <CheckIcon sx={{ color: "#1657CB", fontSize: "20px" }} />{" "}
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Veritatis, veniam?
-                </li>
+                <li>{currentJob?.description}</li>
               </ul>
             </div>
-            <div className="employer__photo">
+            <div className="employer__title">
+              <h3>Thu nhập từ công việc</h3>
+            </div>
+            <div className="employer__responsibility">
+              <ul>
+                <li>Từ {currentJob?.salaryMin}đ đến {currentJob?.salaryMax}đ</li>
+              </ul>
+            </div>
+            {/* <div className="employer__photo">
               <img
                 src="https://images.unsplash.com/photo-1606857521015-7f9fcf423740?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
                 alt=""
@@ -95,10 +114,11 @@ const EmployerDetail = () => {
                 rows={3}
               ></Form.Control>
               <div className="employer__comment--rate"></div>
-              <Button type="submit" className="employer__comment--btn">
-                Submit a review
-              </Button>
-            </Form>
+           
+            </Form> */}
+            <Button type="submit" className="employer__comment--btn">
+              Báo cáo công việc này
+            </Button>
           </div>
           <div className="employer__right">
             <div className="employer__info">
@@ -111,7 +131,7 @@ const EmployerDetail = () => {
                 />
               </div>
               <div className="employer__info--right">
-                <h4 className="employer__info--name">Solic IT Solution</h4>
+                <h4 className="employer__info--name">{currentUser?.firstName + ' ' + currentUser?.lastName}</h4>
                 <div className="employer__info--topic">
                   <p className="employer__topic--tag">IT software</p>
                   <p className="employer__topic--tag">Design photo</p>
@@ -121,57 +141,32 @@ const EmployerDetail = () => {
             </div>
             <ul className="employer__detail">
               <li className="employer__detail--item">
-                <p className="employer__detail--label">
-                  Primary Industry:
-                </p>
-                <p className="employer__detail--content">
-                  Software
-                </p>
+                <p className="employer__detail--label">Công nghệ chính:</p>
+                <p className="employer__detail--content">Photoshop</p>
               </li>
               <li className="employer__detail--item">
-                <p className="employer__detail--label">
-                  Found in:
-                </p>
-                <p className="employer__detail--content">
-                  2015
-                </p>
+                <p className="employer__detail--label">Thành lập:</p>
+                <p className="employer__detail--content">{formatDate(currentUser?.createDate)}</p>
               </li>
               <li className="employer__detail--item">
-                <p className="employer__detail--label">
-                  Phone: 
-                </p>
-                <p className="employer__detail--content">
-                +84 977 542 603
-                </p>
+                <p className="employer__detail--label">Số điện thoại:</p>
+                <p className="employer__detail--content">{currentUser?.phoneNumber}</p>
               </li>
               <li className="employer__detail--item">
-                <p className="employer__detail--label">
-                  Email:
-                </p>
-                <p className="employer__detail--content">
-                  giabao@gmail.com
-                </p>
+                <p className="employer__detail--label">Email:</p>
+                <p className="employer__detail--content">{currentUser?.email}</p>
               </li>
               <li className="employer__detail--item">
-                <p className="employer__detail--label">
-                  Location: 
-                </p>
-                <p className="employer__detail--content">
-                Ha Noi
-                </p>
+                <p className="employer__detail--label">Nơi làm việc:</p>
+                <p className="employer__detail--content">{currentUser?.address}</p>
               </li>
               <li className="employer__detail--item">
-                <p className="employer__detail--label">
-                  Experience:
-                </p>
-                <p className="employer__detail--content">
-                  5+ year
-                </p>
+                <p className="employer__detail--label">Kinh nghiệm:</p>
+                <p className="employer__detail--content">Hơn 2 năm</p>
               </li>
-             
             </ul>
             <div className="employer__right--btn">
-              <Button>Contact Me</Button>
+              <Button onClick={handleApply}>Ứng tuyển</Button>
             </div>
           </div>
         </div>

@@ -1,0 +1,93 @@
+.your-job {
+  width: 100%;
+  padding-top: 57px;
+}
+.your-job__wrapper {
+  height: 100%;
+  background: #F5F5F5;
+  padding: 100px 300px;
+}
+.your-job__title h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 40px;
+  font-weight: 300;
+  color: #2ac36f;
+}
+.your-job__list--header {
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(27, 31, 35, 0.15);
+  align-items: center;
+}
+.your-job__list--header p {
+  font-size: 16px;
+  font-weight: 600;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 5px 0;
+  color: #808080;
+}
+.your-job__list--item {
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(27, 31, 35, 0.15);
+  align-items: center;
+  background-color: #fbf5ff;
+}
+.your-job__list--item p {
+  margin: 0;
+  padding: 0;
+}
+.your-job__list-id {
+  flex: 1;
+}
+.your-job__list-name {
+  flex: 5;
+  color: #1657CB;
+  cursor: pointer;
+}
+.your-job__list-status {
+  flex: 2;
+}
+.your-job__list-action {
+  flex: 2;
+  display: flex;
+}
+.your-job__list-icon {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: #eeeeee;
+  color: #1657CB;
+  margin: 5px;
+  border: none;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.your-job__list-icon:hover {
+  background-color: #1657CB;
+  color: #fff;
+}
+
+.thead__job-id {
+  flex: 1;
+}
+.thead__job-name {
+  flex: 5;
+}
+.thead__job-status {
+  flex: 2;
+}
+.thead__job-action {
+  flex: 2;
+}

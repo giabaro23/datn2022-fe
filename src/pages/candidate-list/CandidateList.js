@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
@@ -23,6 +23,8 @@ import StarRateIcon from "@mui/icons-material/StarRate";
 
 import "./CandidateList.scss";
 import CandidateListItem from "../../components/candidatelist-item/CandidateListItem";
+import { useDispatch, useSelector } from "react-redux";
+import { getCategory, getCategorySub } from "../../actions/category/category";
 const CandidateList = () => {
   const candidates = [
     {
@@ -63,6 +65,16 @@ const CandidateList = () => {
 
   ];
   const workType = ["Bán thời gian", "Toàn thời gian"];
+  const category = useSelector(state=>state.categoryReducer);
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    dispatch(getCategory())
+  },[])
+  console.log(category)
+  const dispatch2 =useDispatch();
+  useEffect(()=>{
+    dispatch2(getCategorySub('1e44924b-2f22-46ab-8b6b-3faaeac8470c'))
+  },[])
   return (
     <>
       <Header />
@@ -92,7 +104,7 @@ const CandidateList = () => {
                   className="search__input candidate__input"
                 />
                 <Form.Select className="search__select select__location">
-                  \<option hidden>Thành phố</option>
+                  <option hidden>Thành phố</option>
                   {LOCATION.map((location) => {
                     return <option value={location}>{location}</option>;
                   })}

@@ -1,0 +1,102 @@
+.add-job {
+  width: 100%;
+  padding-top: 57px;
+}
+.add-job__wrapper {
+  height: 100%;
+  background: #F5F5F5;
+  padding: 100px 300px;
+  display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.add-job__main h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 40px;
+  font-weight: 300;
+  color: #2ac36f;
+}
+.add-job__form--item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.add-job__form--left {
+  margin-right: 20px;
+}
+.add-job__form--right {
+  flex: 2;
+}
+.add-job__form--right h4 {
+  font-weight: 600;
+  font-size: 20px;
+}
+.add-job__form--topic {
+  width: 500px !important;
+}
+.add-job__form--name {
+  width: 500px !important;
+}
+.add-job__form--des {
+  width: 500px !important;
+  height: 100px !important;
+}
+.add-job__form--skill {
+  width: 500px !important;
+}
+.add-job__form--label {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  max-width: 500px;
+}
+.add-job__form--date {
+  display: flex;
+  flex-direction: column;
+}
+.add-job__form--work-Type {
+  width: 500px !important;
+}
+.add-job__form--location {
+  width: 500px !important;
+}
+.add-job__form--pay {
+  width: 500px !important;
+}
+.add-job__form--budget-from {
+  width: 250px !important;
+}
+.add-job__form--budget-to {
+  max-width: 250px !important;
+}
+.add-job__form--btn {
+  padding: 10px !important;
+  background-color: #2ac36f !important;
+  border: none !important;
+  width: 300px;
+  font-size: 18px !important;
+  margin: 30px 0 10px 200px !important;
+}
+.add-job__form--btn:hover {
+  background-color: #56bf85 !important;
+}
+
+.date__select {
+  background-color: #fff;
+  width: 300px;
+  border-radius: 4px;
+  border: 1px solid #CED4DA !important;
+  padding: 6px 12px 6px 12px !important;
+}
+
+.MuiFormLabel-root .MuiInputLabel-root .MuiInputLabel-formControl .MuiInputLabel-animated .MuiInputLabel-shrink .MuiFormLabel-filled {
+  display: none !important;
+}
+
+#date-picker-inline-label {
+  display: none;
+}

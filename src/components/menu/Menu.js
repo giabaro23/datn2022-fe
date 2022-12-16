@@ -11,87 +11,22 @@ const Menu = () => {
             <li className="menu__item">
               <Link to="/dashboard" className="menu__item--link">
                 <CottageOutlinedIcon className="menu__item--icon" />
-                Dashboard
+                Trang chủ
               </Link>
             </li>
             <li className="menu__item">
-              <Link to="/dashboard" className="menu__item--link">
+              <Link to="/admin/user-list" className="menu__item--link">
                 <PersonOutlineOutlinedIcon className="menu__item--icon" />
-                Company profile
+                Quản lý người dùng
               </Link>
             </li>
             <li className="menu__item">
               <Link to="/dashboard" className="menu__item--link">
                 <CottageOutlinedIcon className="menu__item--icon" />
-                Post a New Job
+                Quản lý dự án
               </Link>
             </li>
-            <li className="menu__item">
-              <Link to="/dashboard" className="menu__item--link">
-                <CottageOutlinedIcon className="menu__item--icon" />
-                Manage Jobs
-              </Link>
-            </li>
-            <li className="menu__item">
-              <Link to="/dashboard" className="menu__item--link">
-                <CottageOutlinedIcon className="menu__item--icon" />
-                All Applicants
-              </Link>
-            </li>
-            <li className="menu__item">
-              <Link to="/dashboard" className="menu__item--link">
-                <CottageOutlinedIcon className="menu__item--icon" />
-                Submit Resumes
-              </Link>
-            </li>
-            <li className="menu__item">
-              <Link to="/dashboard" className="menu__item--link">
-                <CottageOutlinedIcon className="menu__item--icon" />
-                Packages
-              </Link>
-            </li>
-            <li className="menu__item">
-              <Link to="/dashboard" className="menu__item--link">
-                <CottageOutlinedIcon className="menu__item--icon" />
-                Messges
-              </Link>
-            </li>
-            <li className="menu__item">
-              <Link to="/dashboard" className="menu__item--link">
-                <CottageOutlinedIcon className="menu__item--icon" />
-                Invoice
-              </Link>
-            </li>
-            <li className="menu__item">
-              <Link to="/dashboard" className="menu__item--link">
-                <CottageOutlinedIcon className="menu__item--icon" />
-                Resume Alerts
-              </Link>
-            </li>
-            <li className="menu__item">
-              <Link to="/dashboard" className="menu__item--link">
-                <CottageOutlinedIcon className="menu__item--icon" />
-                Change Password
-              </Link>
-            </li>
-            <li className="menu__item">
-              <Link to="/dashboard" className="menu__item--link">
-                <CottageOutlinedIcon className="menu__item--icon" />
-                View Profile
-              </Link>
-            </li>
-            <li className="menu__item">
-              <Link to="/dashboard" className="menu__item--link">
-                <CottageOutlinedIcon className="menu__item--icon" />
-                Logout
-              </Link>
-            </li>
-            <li className="menu__item">
-              <Link to="/dashboard" className="menu__item--link">
-                <CottageOutlinedIcon className="menu__item--icon" />
-                Delete profile
-              </Link>
-            </li>
+            
           </ul>
         </div>
     );

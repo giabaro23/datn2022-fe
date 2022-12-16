@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import TrendingFlatIcon from "@mui/icons-material/TrendingFlat";
 
-import { login } from "../../actions/auth";
+import { login } from "../../actions/auth/auth";
 
 import "./Login.scss";
 
@@ -15,12 +15,13 @@ const Login = () => {
   const navigateHome = () => {
     navigate("/");
   };
+  
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const { isLoggedIn } = useSelector((state) => state.authReducer);
+  const { isLoggedIn,user } = useSelector((state) => state.authReducer);
   const dispatch = useDispatch();
-
   const onChangeEmail = (e) => {
     const email = e.target.value;
     setEmail(email);
@@ -34,7 +35,6 @@ const Login = () => {
     setLoading(true);
     dispatch(login(email, password))
       .then(() => {
-        navigate("/home");
         window.location.reload();
       })
       .catch(() => {
@@ -42,7 +42,11 @@ const Login = () => {
       });
   };
   if (isLoggedIn) {
-    return <Navigate to="/home" />;
+    if(user.roleId !== 3){
+
+      return <Navigate to="/home" />;
+    } else {
+    return<Navigate to='/dashboard'/>}
   }
 
   return (
@@ -78,7 +82,7 @@ const Login = () => {
           <Link className="login__forget">Quên mật khẩu?</Link>
         </Form.Group>
         <Form.Group className="mb-3 register__text">
-          <Link className="register__text--link">
+          <Link to='/register' className="register__text--link">
             Đăng ký tài khoản ngay <TrendingFlatIcon />
           </Link>
         </Form.Group>

@@ -4,36 +4,34 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
-} from "../actions/types";
+  UPDATE_USER,
+  GET_USER,
+} from "../actions/auth/types";
 
 const user = JSON.parse(localStorage.getItem("user"));
-const initialState = user ?
-  {
-    isLoggedIn: true,
-    user
-  } :
-  {
-    isLoggedIn: false,
-    user: null
-  };
+const initialState = {
+  isLoggedIn: user ? true: false,
+  user: user?.userInfo[0],
+};
 
 const authReducer = (state = initialState, action) => {
   const {
     type,
     payload
   } = action;
-
   switch (type) {
     case REGISTER_SUCCESS:
       return {
         ...state,
         isLoggedIn: false,
       };
+
     case REGISTER_FAIL:
       return {
         ...state,
         isLoggedIn: false,
       };
+
     case LOGIN_SUCCESS:
       return {
         ...state,
@@ -52,6 +50,12 @@ const authReducer = (state = initialState, action) => {
         isLoggedIn: false,
           user: null,
       };
+
+    case GET_USER:
+      return {...state, user: payload};
+    
+    case UPDATE_USER:
+      return {...state, user: {...state.user, ...payload}};
     default:
       return state;
   }

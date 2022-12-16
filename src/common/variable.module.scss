@@ -6,3 +6,12 @@ $btn-hover-color: #56bf85;
     justify-content: center;
     align-items: center;
 }
+
+@mixin icon-button($size:40px) {
+    height: $size;
+    width: $size;
+    border-radius: 50%;
+    background-color: #eeeeee;
+    color: #1657CB;
+    @include box-center
+}

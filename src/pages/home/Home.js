@@ -15,30 +15,25 @@ function Home() {
       <Header />
       <div className="home">
      <Banner/>
-
         <div className="filter">
           <InputGroup className="mb-3 filter__form container">
             <Form.Control
-              placeholder="Recipient's username"
+              placeholder="Tìm kiếm công việc"
               aria-label="Recipient's username"
               aria-describedby="basic-addon2"
               className="filter__keyword"
             />
             <Form.Select className="filter__location">
-              <option disabled>Thành phố</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+              <option>Thành phố</option>
+              
             </Form.Select>
             <Form.Select className="filter__category">
-              <option disabled>Chuyên ngành</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+              <option>Bán thời gian</option>
+             
             </Form.Select>
 
             <Button variant="outline-secondary" id="button-addon2">
-              Button
+              Tìm kiếm
             </Button>
           </InputGroup>
         </div>
